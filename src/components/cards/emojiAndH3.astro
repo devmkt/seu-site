@@ -1,0 +1,29 @@
+---
+let iconHtml = Astro.props.emoji
+
+let h3Html = ""
+if (Astro.slots.has('h3')) {
+  h3Html = await Astro.slots.render('h3');
+}
+
+let h3class = ""
+let h3size = Astro.props.h3size
+switch (h3size) {
+    case "big":
+        h3class = "dark:text-white text-3xl font-bold mb-6"
+        break;
+    default: h3class = "dark:text-white text-2xl font-semibold mb-2"
+        break;
+}
+
+let {precoDe, precoPor} = Astro.props
+---
+<div class="w-full max-w-sm p-8 rounded-3xl shadow-2xl bg-base-100 hover:scale-105 hover:shadow-4xl duration-500">
+    <p class="text-3xl mb-4" set:html={iconHtml}/>
+    <h3 class={h3class} set:html={h3Html}/>
+    <p><slot/></p>
+    {precoPor &&
+    <div class="text-center text-2xl font-bold mt-4">
+        de <span class="text-red-600 line-through">{precoDe}</span> por <span class="text-green-600">{precoPor}</span>
+    </div>}
+</div>

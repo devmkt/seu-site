@@ -1,0 +1,28 @@
+---
+let {spanClass='', grad=''} = Astro.props
+
+let gradClass
+switch (grad) {
+    case 'yellow':
+        gradClass = "bg-gradient-to-r from-[#FF4D4D] to-[#F9CB28]"        
+        break;
+    case 'blue':
+        gradClass = "bg-gradient-to-r from-[#007CF0] to-[#00DFD8]"        
+        break;
+    case 'green':
+        gradClass = "bg-gradient-to-r from-green-400 to-teal-500"        
+        break;
+    case 'ig':
+        gradClass = "bg-gradient-to-r from-[#ffd600] via-[#ff0069] to-[#7638fa]"        
+        break;
+    default:
+        gradClass = "bg-gradient-to-r from-pink-500 to-violet-500"
+        break;
+}
+
+spanClass+=gradClass
+---
+
+<span class:list={[spanClass, "bg-clip-text text-transparent"]}>
+    <slot/>
+</span>
