@@ -9,13 +9,14 @@ tema: emerald #dark, emerald, bumblebee ou corporate
 persist: true
 temaDestaque: dark #apenas dark, por enquanto
 temaCitacao: bumblebee #dark, emerald, bumblebee ou corporate
+# temaOferta: dark #dark, emerald, bumblebee ou corporate
 
 exibePrecoAposPromessa: false
 
-# provaSocial:
-# - {img: "/fotos/pessoa1.webp", texto: "Excelente! O curso X foi um divisor de águas. Em apenas T meses, eu fui de A para B", nome: "Pessoa 1" }
-# - {img: "/fotos/pessoa2.webp", texto: "Excelente! O curso X foi um divisor de águas. Em apenas T meses, eu fui de A para B", nome: "Pessoa 2" }
-# - {img: "/fotos/pessoa1.webp", texto: "Excelente! O curso X foi um divisor de águas. Em apenas T meses, eu fui de A para B", nome: "Pessoa 3" }
+provaSocial:
+- {img: "/fotos/pessoa1.webp", texto: "Excelente! O curso X foi um divisor de águas. Em apenas T meses, eu fui de A para B", nome: "Pessoa 1" }
+- {img: "/fotos/pessoa2.webp", texto: "Excelente! O curso X foi um divisor de águas. Em apenas T meses, eu fui de A para B", nome: "Pessoa 2" }
+- {img: "/fotos/pessoa1.webp", texto: "Excelente! O curso X foi um divisor de águas. Em apenas T meses, eu fui de A para B", nome: "Pessoa 3" }
 
 beneficiosTitle: O que você vai ter acesso…
 beneficios:
@@ -26,10 +27,7 @@ beneficios:
     - "Como aumentar a conversão de uma Landing Page sem alterar copy ou design"
     - "Como prestar serviços para um mercado aquecido e que está disposto a pagar pela qualidade: o de Produtores Digitais"
 
-conteudosTitle: Como você vai fazer X em tempo T? #Lista de Conteúdos do Curso
 # Lista de Conteúdos está no corpo do arquivo
-
-bonusTitle: 2 Aulas Bônus para impulsionar os seus Resultados
 # Lista de Bônus está no corpo do arquivo
 
 garantiaDias: 30
@@ -48,10 +46,10 @@ beneficiosOferta:
 - Outro item de benefício
 
 cta: Quero começar agora!
-ctaLink: https://chk.eduzz.com/1828321?cupom=GANHARCOMLPS20&utm_medium=lp
+ctaLink: https://chk.eduzz.com/1932198?cupom=LPRAPIDA&utm_medium=lp
 
 ---
-import Layout from "@layouts/lp-infoproduto-bt.astro"
+import Layout from "@layouts/lp.astro"
 import Degrade from "@components/colorText/span.astro"
 import Card from "@components/cards/emojiAndH3.astro"
 import Check from "@assets/icons/roundCheckmark.astro"
@@ -60,7 +58,7 @@ import img1 from "@assets/praia.webp"
 <Layout frontmatter={frontmatter} >
 
 <Fragment slot="pre-promessa">- Texto opcional pré-promessa <span class="text-white">⚡</span> -</Fragment>
-<Fragment slot="promessa">Aqui vai a <Degrade>**Promessa de Transformação**.</Degrade> Ex.: "Descubra <Degrade grad="ig">o exato passo a passo</Degrade> para..."</Fragment>
+<Fragment slot="promessa">Aqui vai a <Degrade spanClass="text-4xl xs:text-5xl">**Promessa de Transformação**.</Degrade> Ex.: "Descubra <Degrade grad="ig">o exato passo a passo</Degrade> para..."</Fragment>
 <Fragment slot="subpromessa">Escreva aqui o reforço da <Degrade grad="yellow">_**promessa de transformação**_</Degrade>, exaltando a <Degrade grad="green">**simplicidade**</Degrade> do seu método e deixando _mais clara a sua proposta_. Aguce a curiosidade da pessoa leitora para que ela vá até a <Degrade grad="blue">**página de vendas**</Degrade>.</Fragment>
 {/* Opções do Degrade: yellow, blue, gree, ig */}
 
@@ -97,8 +95,8 @@ Não focar no problema, ir direto para a solução. Falar de forma lógica porqu
 
 </Fragment>
 
+<Fragment slot="conteudosTitulo">Como você vai fazer X em tempo T?</Fragment>
 <Fragment slot="conteudos">
-    {/* O Título desta seção está na frontmatter */}
     <Card emoji="🛠️">
         <Fragment slot="h3">Título do Conteúdo</Fragment>
         <>Vou te guiar no setup da sua estrutura de desenvolvimento, para que você tenha um bom ambiente de trabalho digital.</>
@@ -121,9 +119,8 @@ Não focar no problema, ir direto para a solução. Falar de forma lógica porqu
     </Card>
 </Fragment>
 
+<Fragment slot="bonusTitulo">2 Aulas Bônus para impulsionar os seus Resultados</Fragment>
 <Fragment slot="bonus">
-    {/* O Título desta seção está na frontmatter */}
-
     <Card emoji="👩🏾‍💻" h3size="big" precoDe="R$ 97,00" precoPor="R$ 0">
         <Fragment slot="h3">Título do Card</Fragment>
         <>E aqui eu coloquei mais um texto *normal* dentro do card, mas você pode colocar **qualquer coisa.** Repare que os cards ficam alinhados, não importa o tamanho do texto.</>
